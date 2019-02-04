@@ -1,0 +1,20 @@
+<h3>New Astronaut Information</h3>
+
+<p>Name: <%= @astronaut.name %></p>
+<p>Weight: <%= @astronaut.weight %></p>
+<p>Height: <%= @astronaut.height %></p>
+<p>Bio: <%= @astronaut.bio %></p>
+<p>Specialty: <%= @astronaut.specialty %></p>
+<p>Nationality: <%= @astronaut.nationality %></p>
+<br>
+<br>
+<a href="/">Return to Main Console</a>
+<br>
+<br>
+<a href="/astronauts/new">Create a New Crew Member</a>
+<br>
+<br>
+<form method="post" action="/astronauts/<%= @astronaut.id %>">
+  <input type="hidden" name="_method" value="Delete" />
+  <input type="submit" value="Delete Crew Member" />
+</form>

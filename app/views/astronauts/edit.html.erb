@@ -1,0 +1,25 @@
+<h2>Update Crew Member</h2>
+
+<form action="/astronauts/<%= @astronaut.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <ul>
+      <li><label>Crew Member Name:</label>
+      <input id="name" type="text" name="astronaut[name]" value="<%= @astronaut.name %>" /></li>
+      <li><label>Weight:</label>
+      <input id="weight" type="text" name="astronaut[weight]"  value="<%= @astronaut.weight %>"></li>
+      <li><label>Height:</label>
+      <input id="height" type="text" name="astronaut[height]" value="<%= @astronaut.height %>"></li>
+      <li><label>Bio:</label>
+      <input id="bio" type="text" name="astronaut[bio]" value="<%= @astronaut.bio %>"></li>
+      <li><label>Nationality:</label>
+      <input id="nationality" type="text" name="astronaut[nationality]" value="<%= @astronaut.nationality %>"></li>
+      <li><label>Specialty:</label>
+      <input id="crew" type="text" name="astronaut[specialty]" value="<%= @astronaut.specialty %>"></li>
+  </ul>
+  <input type="Submit" value="Update Crew Member" />
+  </form>
+
+  <form method="post" action="/astronauts/<%= @astronaut.id %>">
+  <input type="hidden" name="_method" value="Delete" />
+  <input type="submit" value="Delete Crew Member" />
+</form>
