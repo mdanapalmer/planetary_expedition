@@ -1,0 +1,17 @@
+<p>Space Craft</p>
+<br>
+<br>
+<p>Name: <%= @spaceship.name %></p>
+<p>Type: <%= @spaceship.ship_type %></p>
+<p>Speed: <%= @spaceship.speed %></p>
+<p>Crew: <%= @spaceship.crew %></p>
+<p>Cargo: <%= @spaceship.cargo %></p>
+<br>
+<br>
+<a href="/">Return to Main Console</a>
+<br>
+<br>
+<form method="post" action="/ships/<%= @spaceship.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete" />
+</form>
