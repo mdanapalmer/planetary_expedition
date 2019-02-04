@@ -1,6 +1,6 @@
 <h2>Edit Your Space Craft</h2>
 
-<form action="/ships/<%= @spaceship.id %>" method="post">
+<form action="/spaceships/<%= @spaceship.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <ul>
     <li><label>Space Craft Name:</label>
@@ -17,7 +17,7 @@
   <input type="submit" />
 </form>
 
-<form method="post" action="/ships/<%= @spaceship.id %>">
+<form method="post" action="/spaceships/<%= @spaceship.id %>">
   <input type="hidden" name="_method" value="Delete" />
   <input type="submit" value="Delete Space Craft" />
 </form>

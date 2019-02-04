@@ -18,10 +18,10 @@
 <li>Crew: <%= spacecraft.crew %></li>
 <li>Cargo: <%= spacecraft.cargo %></li>
 <br>
-<a href="/ships/<%=spacecraft.id%>/edit">Edit Space Craft</a>
+<a href="/spaceships/<%=spacecraft.id%>/edit">Edit Space Craft</a>
 <br>
 <br>
-<form method="post" action="/ships/<%= spacecraft.id %>">
+<form method="post" action="/spaceships/<%= spacecraft.id %>">
   <input type="hidden" name="_method" value="delete" />
   <input type="submit" value="Delete Space Craft" />
 </ul>

@@ -44,7 +44,7 @@ end
   post '/spaceships' do
     if logged_in?
       @spaceship = Spaceship.create(params)
-    redirect to '/spaceships/#{@spaceship.id}'
+    erb :'spaceships/show.html'
     else
     erb :'error'
   end  
