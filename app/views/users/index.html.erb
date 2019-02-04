@@ -1,0 +1,55 @@
+<% if logged_in? %>
+<h2>User Information:</h2>
+<br>
+<ul>
+<li>Name: <%= current_user.name %></li>
+<li>Email: <%= current_user.email %></li>
+<li>Rank: <%= current_user.rank %></li>
+<li>Age: <%= current_user.age %></li>
+</ul>
+<br>
+<% end %>
+<h3>Flight Controller of the following ships:</h3>
+<br>
+<ul><% @spaceships.each do |spacecraft| %>
+<li>Name: <%= spacecraft.name %></li>
+<li>Type: <%= spacecraft.ship_type %></li>
+<li>Speed: <%= spacecraft.speed %></li>
+<li>Crew: <%= spacecraft.crew %></li>
+<li>Cargo: <%= spacecraft.cargo %></li>
+<br>
+<a href="/ships/<%=spacecraft.id%>/edit">Edit Space Craft</a>
+<br>
+<br>
+<form method="post" action="/ships/<%= spacecraft.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete Space Craft" />
+</ul>
+<% end %>
+
+<h3>Current Astronaut Roster:</h3>
+
+<ul><% @astronauts.each do |astro| %>
+<li><%= astro.name %></li>
+<li><%= astro.weight %></li>
+<li><%= astro.height %></li>
+<li><%= astro.bio %></li>
+<li><%= astro.nationality %></li>
+<li><%= astro.specialty %></li>
+<br>
+<a href="/astronauts/<%= astro.id %>/edit">Edit Crew Member</a>
+<br>
+<form method="post" action="/astronauts/<%= astro.id %>">
+  <input type="hidden" name="_method" value="Delete" />
+  <input type="submit" value="Delete Crew Member" />
+<br>
+</ul>
+<br>
+<% end %>
+
+<% if !logged_in? %>
+<p>You need to be logged in to view this information.</p>
+
+<% end %>
+  <a href='/'>Return to Mission Control.</a>
+  
