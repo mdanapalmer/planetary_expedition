@@ -15,6 +15,12 @@
     <li><label>Cargo:</label>
       <input id="cargo" type="text" name="cargo"></li>
       <input id="user_id" type="hidden" name="user_id" value="<%= @spaceship = current_user.id %>"/>
+
+      <h3>Existing Crew Members</h3>
+      <%@astronauts.each do |astro|%>
+      <input type="checkbox" name="spaceship[astro_ids][]" value=
+      "<%%=astro.id%>" id="<%astro.id%>"><%=astro.name%></input> 
+      <%end%>
   </ul>
   <input type="submit">
 </form>

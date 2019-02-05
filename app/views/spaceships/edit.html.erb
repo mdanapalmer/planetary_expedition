@@ -16,7 +16,7 @@
   </ul>
   <h3>Crew Members of <%= @spaceship.name %></h3>
   <%current_user.astronauts.each do |astro|%>
-    <input type="checkbox" name="spaceship[astronaut_ids][]" value="<%=astro.id%>" id="<%=astro.id%>"><%=astro.name%></input>
+    <input type="checkbox" name="spaceship[crew_member][]" value="<%=astro.name%>" id="<%=astro.name%>"><%=astro.name%></input>
 <%end%>
 <br>
 <br>
