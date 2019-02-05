@@ -17,6 +17,10 @@
   <input type="submit" />
 </form>
 
+<%@astronauts.each do |astro|%>
+    <input type="checkbox" name="spaceship[astronaut_ids][]" value="<%=astro.id%>" id="<%=astro.id%>"><%=astro.name%></input>
+<%end%>
+
 <form method="post" action="/spaceships/<%= @spaceship.id %>">
   <input type="hidden" name="_method" value="Delete" />
   <input type="submit" value="Delete Space Craft" />
