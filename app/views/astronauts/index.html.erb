@@ -1,3 +1,5 @@
+<h2>Crew Member Roster</h2>
+
 <ul><% @astronauts.each do |astro| %>
 <li><%= astro.name %></li>
 <li><%= astro.weight %></li>
@@ -7,6 +9,11 @@
 <li><%= astro.specialty %></li>
 </ul>
 <a href="/astronauts/<%= astro.id %>/edit">Update Crew Member</a>
+<br>
+<br>
+<input type="hidden" name="_method" value="Delete" />
+<input type="submit" value="Delete Crew Member" />
+<br>
 <br>
 <% end %>
 <a href="/">Return to Mission Control</a>
