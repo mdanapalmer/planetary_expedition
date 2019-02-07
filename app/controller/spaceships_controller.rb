@@ -3,8 +3,6 @@ class SpaceshipsController < ApplicationController
 # new
 	get '/spaceships/new' do
     if logged_in?
-      @spaceship = Spaceship.new
-      @astronauts = current_user.astronauts
     erb :'spaceships/new.html'
     else
     erb :'error'

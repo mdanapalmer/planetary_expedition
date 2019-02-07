@@ -5,14 +5,14 @@
 <form action="/spaceships" method="POST">
   <ul>
     <li><label>Name:</label>
-      <input id="name" type="text" name="name"></li>
+      <input id="name" type="text" name="spaceship[name]"></li>
     <li><label>Type:</label>
-      <input id="ship_type" type="text" name="ship_type"></li>
+      <input id="ship_type" type="text" name="spaceship[ship_type]"></li>
     <li><label>Speed:</label>
-      <input id="speed" type="text" name="speed"></li>
+      <input id="speed" type="text" name="spaceship[speed]"></li>
     <li><label>Cargo:</label>
-      <input id="cargo" type="text" name="cargo"></li>
-      <input id="user_id" type="hidden" name="user_id" value="<%= @spaceship = current_user.id %>"></li>
+      <input id="cargo" type="text" name="spaceship[cargo]"></li>
+      <input id="user_id" type="hidden" name="spaceship[user_id]" value="<%= @spaceship = current_user.id %>"></li>
   </ul>
   <input type="submit" value="Create Space Craft">
 </form>

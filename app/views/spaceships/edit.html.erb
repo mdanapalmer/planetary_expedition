@@ -9,8 +9,6 @@
       <input id="ship_type" type="text" name="spaceship[ship_type]" value="<%= @spaceship.ship_type %>"></li>
     <li><label>Speed:</label>
       <input id="speed" type="text" name="spaceship[speed]" value="<%= @spaceship.speed %>"></li>
-    <li><label>Crew:</label>
-      <input id="crew" type="text" name="spaceship[crew]" value="<%= @spaceship.crew %>"></li>
     <li><label>Cargo:</label>
       <input id="cargo" type="text" name="spaceship[cargo]" value="<%= @spaceship.cargo %>"></li>
   </ul>
@@ -19,14 +17,14 @@
     <input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
 <br>
 <br>
-    <label>and/or, create a new astronaut:</label>
-  <br>
-  <label>Name:</label>
-    <input  type="text" name="crew_member[name]" id="crew_member_name"></input>
-  <br>
 <%end%>
 <br>
 <br>
+
+<label>and/or, create a new astronaut:</label>
+  <br>
+  <label>Name:</label>
+    <input  type="text" name="crew_member[name]" id="crew_member_name"></input>
   <input type="submit" />
 </form>
 <form method="post" action="/spaceships/<%= @spaceship.id %>">
