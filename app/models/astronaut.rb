@@ -1,4 +1,5 @@
 class Astronaut < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :spaceships
+	has_many :spaceship_astronaut
+	has_many :spaceships, through: :spaceship_astronaut
 end
