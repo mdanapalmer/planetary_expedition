@@ -1,19 +1,22 @@
 <h2>Crew Member Roster</h2>
-
+<% binding.pry %>
 <ul><% @astronauts.each do |astro| %>
 	<li>Name: <%= astro.name %></li>
+	<li>Ship: <%= astro.ship %></li>
 	<li>Weight: <%= astro.weight %></li>
 	<li>Height: <%= astro.height %></li>
 	<li>Bio: <%= astro.bio %></li>
 	<li>Nationality: <%= astro.nationality %></li>
 	<li>Specialty: <%= astro.specialty %></li>
+	
 </ul>
 <a href="/astronauts/<%= astro.id %>/edit">Update Crew Member</a>
 <br>
 <br>
-<form method="post" action="/astronauts/<%= @astronauts.ids %>">
-<input type="hidden" name="_method" value="Delete" />
-<input type="submit" value="Delete Crew Member" />
+ <form method="post" action="/astronauts/<%= astro.id %>">
+  <input type="hidden" name="_method" value="Delete" />
+  <input type="submit" value="Delete Crew Member" />
+</form>
 <br>
 <br>
 </form> 

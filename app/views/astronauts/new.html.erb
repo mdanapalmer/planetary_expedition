@@ -18,5 +18,9 @@
       <input id="specialty" type="text" name="specialty"></li>
       <input id="user_id" type="hidden" name="user_id" value="<%= @astronaut = current_user.id %>"/>
   </ul>
+  <h3>Assign to a Ship</h3>
+  <%current_user.spaceships.each do |spacecraft|%>
+    <input type="checkbox" name="astronaut[ship]" id="<%=spacecraft.name%>"value="<%=spacecraft.name%>"<%='checked' if current_user.spaceships.include?(spacecraft)%>> <%=spacecraft.name%></input>
+<%end%>
       <input type="submit">
 </form>

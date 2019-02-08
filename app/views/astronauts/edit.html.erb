@@ -14,11 +14,16 @@
       <li><label>Nationality:</label>
       <input id="nationality" type="text" name="astronaut[nationality]" value="<%= @astronaut.nationality %>"></li>
       <li><label>Specialty:</label>
-      <input id="crew" type="text" name="astronaut[specialty]" value="<%= @astronaut.specialty %>"></li>
+      <input id="specialty" type="text" name="astronaut[specialty]" value="<%= @astronaut.specialty %>"></li>
   </ul>
+
+  <h3>Assign to a Ship</h3>
+  <%current_user.spaceships.each do |spacecraft|%>
+    <input type="checkbox" name="astronaut[ship]" id="<%=spacecraft.name%>" value="<%=spacecraft.name%>" <%='checked' if current_user.spaceships.include?(spacecraft)%>> <%=spacecraft.name%></input>
+<%end%>
+<br>
   <input type="Submit" value="Update Crew Member" />
   </form>
-
   <form method="post" action="/astronauts/<%= @astronaut.id %>">
   <input type="hidden" name="_method" value="Delete" />
   <input type="submit" value="Delete Crew Member" />

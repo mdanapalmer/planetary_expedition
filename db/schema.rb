@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_045841) do
+ActiveRecord::Schema.define(version: 2019_02_08_003751) do
 
   create_table "astronauts", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_07_045841) do
     t.string "specialty"
     t.integer "user_id"
     t.string "astronaut"
+    t.string "ship"
   end
 
   create_table "spaceship_astronaut", force: :cascade do |t|
