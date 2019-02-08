@@ -53,10 +53,7 @@ end
   patch '/spaceships/:id' do
     if logged_in?
       @spaceship = Spaceship.find(params[:id])
-      @spaceship.update(params[:spaceship])
-      if !params["crew_member"]["name"].empty?
-      current_user.astronauts << Astronaut.create(name: params["crew_member"]["name"])
-    end
+      @spaceship.update!(params[:spaceship])
     redirect to "/spaceships/#{@spaceship.id}"
     else
     erb :'error'
