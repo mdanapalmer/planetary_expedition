@@ -14,7 +14,7 @@
   </ul>
   <h3>Crew Members of <%= @spaceship.name %></h3>
   <%current_user.astronauts.each do |astro|%>
-    <input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
+    <input type="checkbox" name="spaceship[astronaut_name][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
 <br>
 <br>
 <%end%>
