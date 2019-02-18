@@ -13,9 +13,13 @@ get '/users' do
 end
 
 post '/users' do
-	@user = User.create(:name => params[:name], :age => params[:age], :rank => params[:rank], :email => params[:email], :password => params[:password])
-	session[:user_id] = @user.id
-	erb :'users/show.html'
+	#if params[:email] = "nil" || " "
+	#	redirect '/signup'
+	#else
+		@user = User.create(:name => params[:name], :age => params[:age], :rank => params[:rank], :email => params[:email], :password => params[:password])
+		session[:user_id] = @user.id
+		redirect 'users/show.html'
+	#end
 end
 
 end

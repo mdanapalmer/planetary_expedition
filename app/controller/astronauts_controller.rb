@@ -58,6 +58,7 @@ end
 post "/astronauts" do
     if logged_in?
     	@astronaut = Astronaut.create(params)
+        
     	erb :"/astronauts/show.html"
     else
       erb :'error'
