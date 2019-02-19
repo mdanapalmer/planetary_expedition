@@ -23,9 +23,10 @@ class UsersController < ApplicationController
 	# end
 
 	post '/users' do
+		if current_user.id.uniq
 		@user = User.create!(name: params[:name], age: params[:age], 
 			rank: params[:rank], email: params[:email], password: params[:password])
-				binding.pry
-		session[:user_id] = @user.id	
+		session[:user_id] = @user.id
+		redirect '/users'	
 	end
 end
