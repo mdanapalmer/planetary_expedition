@@ -10,13 +10,12 @@ class SessionsController < ApplicationController
 	end
 
 	post '/login' do
-    	user = User.find_by(:email => params[:email])
-    		if user && user.authenticate(params[:password])
-      			session[:user_id] = user.id
-      	redirect to '/'
-      else
-      	erb :'error'
-    end
-  end
-
+		user = User.find_by(:email => params[:email])
+		if user && user.authenticate(params[:password])
+			session[:user_id] = user.id
+			redirect to '/'
+		else
+			erb :'error'
+		end
+	end
 end

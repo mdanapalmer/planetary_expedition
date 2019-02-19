@@ -3,22 +3,22 @@
 <p>Input the following specifications to build your ship.</p>
 
 <form action="/spaceships" method="POST">
-  <ul>
-    <li><label>Name:</label>
-      <input id="name" type="text" name="spaceship[name]"></li>
-    <li><label>Type:</label>
-      <input id="ship_type" type="text" name="spaceship[ship_type]"></li>
-    <li><label>Speed:</label>
-      <input id="speed" type="text" name="spaceship[speed]"></li>
-    <li><label>Cargo:</label>
-      <input id="cargo" type="text" name="spaceship[cargo]"></li>
-      <input id="user_id" type="hidden" name="spaceship[user_id]" value="<%= @spaceship = current_user.id %>"></li>
-  </ul>
+	<ul>
+		<li><label>Name:</label>
+			<input id="name" type="text" name="spaceship[name]"></li>
+		<li><label>Type:</label>
+			<input id="ship_type" type="text" name="spaceship[ship_type]"></li>
+		<li><label>Speed:</label>
+			<input id="speed" type="text" name="spaceship[speed]"></li>
+		<li><label>Cargo:</label>
+			<input id="cargo" type="text" name="spaceship[cargo]"></li>
+			<input id="user_id" type="hidden" name="spaceship[user_id]" value="<%= @spaceship = current_user.id %>"></li>
+	</ul>
 
-  <h3>Crew Members</h3>
-  <%current_user.astronauts.each do |astro|%>
-    <input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
+	<h3>Crew Members</h3>
+	<%current_user.astronauts.each do |astro|%>
+		<input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
 <%end%>
 <br><br>
-  <input type="submit" value="Create Space Craft">
+	<input type="submit" value="Create Space Craft">
 </form>
