@@ -46,19 +46,18 @@ end
 		end
 end
 
-get "/astronauts" do
+	get "/astronauts" do
 		if logged_in?
-		@astronauts = current_user.astronauts  
-		erb :'astronauts/index.html'
-	else
-				erb :'error'
+			@astronauts = current_user.astronauts  
+			erb :'astronauts/index.html'
+		else
+			erb :'error'
 		end
-end 
+	end 
 
 post "/astronauts" do
 		if logged_in?
 			@astronaut = Astronaut.create(params)
-				
 			erb :"/astronauts/show.html"
 		else
 			erb :'error'
