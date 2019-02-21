@@ -4,6 +4,7 @@ configure do
 	set :public_folder, 'public'
 	set :views, 'app/views'
 	enable :sessions
+	register Sinatra::Flash
 	set :session_secret, "ad_astra"
 end
 
