@@ -17,6 +17,7 @@ GEM
     bond (0.5.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
+    friendly_slug (0.1.7)
     i18n (1.5.2)
       concurrent-ruby (~> 1.0)
     method_source (0.9.2)
@@ -68,6 +69,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
+  friendly_slug (~> 0.1.7)
   pry
   rake
   require_all
@@ -79,4 +81,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

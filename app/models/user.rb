@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 	has_many :astronauts
 
 	validates :email, presence: true
+	validates :email, uniqueness: true
 end
