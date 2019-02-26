@@ -10,8 +10,8 @@ class AstronautsController < ApplicationController
   end
 
   get '/astronauts/:id/edit' do
-    if logged_in? &&
-      @astronaut = Astronaut.find(params[:id])
+    if logged_in?
+      @astronaut = current_user.astronauts.find(params[:id])
       erb :'astronauts/edit.html'
     else
       erb :'error'
@@ -20,7 +20,7 @@ class AstronautsController < ApplicationController
 
   get '/astronauts/:id' do
     if logged_in?
-      @astronaut = Astronaut.find(params[:id])
+      @astronaut = current_user.astronauts.find(params[:id])
       erb :'astronauts/show.html'
     else
       erb :'error'
@@ -29,7 +29,7 @@ class AstronautsController < ApplicationController
 
   patch '/astronauts/:id' do 
     if logged_in?
-      @astronaut = Astronaut.find(params[:id])
+      @astronaut = current_user.astronauts.find(params[:id])
       @astronaut.update(params[:astronaut])    
       redirect to "/astronauts/#{@astronaut.id}"
     else
@@ -39,7 +39,7 @@ class AstronautsController < ApplicationController
 
   delete "/astronauts/:id" do
     if logged_in?
-      Astronaut.destroy(params[:id])
+      current_user.astronauts.destroy(params[:id])
       redirect to "/astronauts"
     else
       erb :'error'

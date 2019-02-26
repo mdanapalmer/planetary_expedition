@@ -12,7 +12,7 @@ class SpaceshipsController < ApplicationController
   # show
   get "/spaceships/:id" do  
     if logged_in?
-      @spaceship = Spaceship.find(params[:id])
+      @spaceship = current_user.spaceships.find(params[:id])
       erb :'spaceships/show.html'
     else
       erb :'error'
@@ -22,7 +22,7 @@ class SpaceshipsController < ApplicationController
   # edit
   get '/spaceships/:id/edit' do
     if logged_in?
-      @spaceship = Spaceship.find(params[:id])
+      @spaceship = current_user.spaceships.find(params[:id])
       erb :'spaceships/edit.html'
     else
       erb :'error'
@@ -52,7 +52,7 @@ class SpaceshipsController < ApplicationController
   # update
   patch '/spaceships/:id' do
     if logged_in?
-      @spaceship = Spaceship.find(params[:id])
+      @spaceship = current_user.spaceships.find(params[:id])
       @spaceship.update!(params[:spaceship])
       redirect to "/spaceships/#{@spaceship.id}"
     else
@@ -63,7 +63,7 @@ class SpaceshipsController < ApplicationController
   #destroy
   delete "/spaceships/:id" do
     if logged_in?
-      Spaceship.destroy(params[:id])
+      current_user.spaceships.destroy(params[:id])
       redirect to "/spaceships"
     else
       erb :'error'
