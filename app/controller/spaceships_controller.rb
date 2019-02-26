@@ -43,6 +43,7 @@ end
 	post '/spaceships' do
 		if logged_in?
 			@spaceship = Spaceship.create(params[:spaceship])
+			@spaceship.user_id = current_user.id
 		erb :'spaceships/show.html'
 		else
 		erb :'error'

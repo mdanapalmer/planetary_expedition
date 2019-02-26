@@ -2,7 +2,7 @@
 
 <p>Input the following information to build your crew</p>
 
-<form action="/astronauts" method="post">
+<form action="/astronauts" method="POST">
 	<ul>
 		<li><label>Name:</label>
 			<input id="name" type="text" name="name"></li>
@@ -16,7 +16,6 @@
 			<input id="nationality" type="text" name="nationality"></li
 		<li><label>Specialty:</label>
 			<input id="specialty" type="text" name="specialty"></li>
-			<input id="user_id" type="hidden" name="user_id" value="<%= @astronaut = current_user.id %>"/>
 	</ul>
 	<h3>Assign to a Ship</h3>
 	<%current_user.spaceships.each do |spacecraft|%>
