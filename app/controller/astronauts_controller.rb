@@ -1,31 +1,31 @@
 class AstronautsController < ApplicationController
-	
-get '/astronauts/new' do
+
+	get '/astronauts/new' do
 		if logged_in?
 			@astronaut = Astronaut.new
 			erb :'astronauts/new.html'
 		else
 			erb :'error'
 		end
-end
+	end
 
-get '/astronauts/:id/edit' do
+	get '/astronauts/:id/edit' do
 		if  logged_in?
 			@astronaut = Astronaut.find(params[:id])
 			erb :'astronauts/edit.html'
 		else
-				erb :'error'
+			erb :'error'
 		end
-end
+	end
 
-get '/astronauts/:id' do
+	get '/astronauts/:id' do
 		if  logged_in?
 			@astronaut = Astronaut.find(params[:id])
 			erb :'astronauts/show.html'
 		else
-				erb :'error'
+			erb :'error'
 		end
-end
+	end
 
 	patch '/astronauts/:id' do 
 		if logged_in?
@@ -33,18 +33,18 @@ end
 			@astronaut.update(params[:astronaut])    
 			redirect to "/astronauts/#{@astronaut.id}"
 		else
-				erb :'error'
+			erb :'error'
 		end
-end
+	end
 
 	delete "/astronauts/:id" do
 		if logged_in?
 			Astronaut.destroy(params[:id])
 			redirect to "/astronauts"
 		else
-				erb :'error'
+			erb :'error'
 		end
-end
+	end
 
 	get "/astronauts" do
 		if logged_in?
@@ -55,14 +55,13 @@ end
 		end
 	end 
 
-post "/astronauts" do
+	post "/astronauts" do
+		@user = current_user
 		if logged_in?
-			@astronaut = Astronaut.create(params)
-			@astronaut.user_id = current_user.id
+			@astronaut = Astronaut.create(user_id: current_user.id, name: params[:name])#, weight, height, bio, nationality, specialty )
 			erb :"/astronauts/show.html"
 		else
 			erb :'error'
 		end
-end  
-
+	end  
 end
