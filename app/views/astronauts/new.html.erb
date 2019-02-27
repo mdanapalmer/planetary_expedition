@@ -18,6 +18,7 @@
 			<input id="specialty" type="text" name="specialty"></li>
 	</ul>
 	<h3>Assign to a Ship</h3>
+	<em>Be advised, only one Astronaut per Spacecraft</em>
 	<%current_user.spaceships.each do |spacecraft|%>
 		<input id ="ship" type="checkbox" name="ship" id="<%=spacecraft.name%>"value="<%=spacecraft.name%>"<%='checked' if current_user.spaceships.include?(spacecraft)%>> <%=spacecraft.name%></input>
 <%end%>
