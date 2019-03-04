@@ -5,7 +5,7 @@ class SpaceshipsController < ApplicationController
     if logged_in?
       erb :'spaceships/new.html'
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 
@@ -15,7 +15,7 @@ class SpaceshipsController < ApplicationController
       @spaceship = current_user.spaceships.find(params[:id])
       erb :'spaceships/show.html'
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 
@@ -25,7 +25,7 @@ class SpaceshipsController < ApplicationController
       @spaceship = current_user.spaceships.find(params[:id])
       erb :'spaceships/edit.html'
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 
@@ -35,7 +35,7 @@ class SpaceshipsController < ApplicationController
       @spaceships = current_user.spaceships     
       erb :'spaceships/index.html'
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 
@@ -46,7 +46,7 @@ class SpaceshipsController < ApplicationController
       @spaceship = Spaceship.create(user_id: current_user.id, name: params[:name], ship_type: params[:ship_type], speed: params[:speed], cargo: params[:cargo], crew_member: @astronaut.name)
       erb :'spaceships/show.html'
     else
-      erb :'error'
+      redirect to '/error'
     end  
   end
 
@@ -57,7 +57,7 @@ class SpaceshipsController < ApplicationController
       @spaceship.update!(params[:spaceship])
       redirect to "/spaceships/#{@spaceship.id}"
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 
@@ -67,7 +67,7 @@ class SpaceshipsController < ApplicationController
       current_user.spaceships.destroy(params[:id])
       redirect to "/spaceships"
     else
-      erb :'error'
+      redirect to '/error'
     end
   end
 end

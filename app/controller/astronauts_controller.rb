@@ -5,7 +5,7 @@ get '/astronauts/new' do
     @astronaut = Astronaut.new
     erb :'astronauts/new.html'
   else
-    erb :'error'
+    redirect to '/error'
   end
 end
 
@@ -14,7 +14,7 @@ get '/astronauts/:id/edit' do
     @astronaut = current_user.astronauts.find(params[:id])
     erb :'astronauts/edit.html'
   else
-    erb :'error'
+    redirect to '/error'
   end
 end
 
@@ -23,7 +23,7 @@ get '/astronauts/:id' do
     @astronaut = current_user.astronauts.find(params[:id])
     erb :'astronauts/show.html'
   else
-    erb :'error'
+    redirect to '/error'
   end
 end
 
@@ -42,7 +42,7 @@ delete "/astronauts/:id" do
     current_user.astronauts.destroy(params[:id])
     redirect to "/astronauts"
   else
-    redirect to "/astronauts"
+    redirect to '/error'
   end
 end
 
@@ -51,7 +51,7 @@ get "/astronauts" do
     @astronauts = current_user.astronauts  
     erb :'astronauts/index.html'
   else
-    erb :'error'
+    redirect to '/error'
   end
 end 
 
@@ -60,7 +60,7 @@ post "/astronauts" do
       @astronaut = Astronaut.create(user_id: current_user.id, name: params[:name], weight: params[:weight], height: params[:height], bio: params[:bio], nationality: params[:nationality], specialty: params[:specialty], ship: params[:ship])
       erb :'astronauts/show.html'
     else
-      erb :'error'
+      redirect to '/error'
     end
 end  
 end

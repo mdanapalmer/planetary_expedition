@@ -15,7 +15,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect to '/'
   else
-    erb :'error'
+    redirect to '/error'
   end
 end
 end

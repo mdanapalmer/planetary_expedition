@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       @spaceships = current_user.spaceships
       @astronauts = current_user.astronauts
       erb :'users/index.html'
+    else
+      redirect to '/error'
     end
   end
 
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
     @user.save
     if @user.valid?
       session[:user_id] = @user_id
-      redirect '/'
+      erb :'index'
     else
       flash.now[:notice] = 'Email and/or Password fields cannot be blank.  Email must not already be taken.'
     end
