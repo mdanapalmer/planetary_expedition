@@ -1,5 +1,5 @@
 class RenameColumnForSpaceships < ActiveRecord::Migration[5.2]
   def change
-  	rename_column :spaceships, :type, :ship_type
+    rename_column :spaceships, :type, :ship_type
   end
 end

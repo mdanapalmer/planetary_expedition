@@ -2,27 +2,27 @@
 
 <% if logged_in? %>
 <p>Personal Console of <%=current_user.rank %> <%=current_user.name %></p>
-		<h3>Controls</h3>
+    <h3>Controls</h3>
 <ul>
-	<li><a href="/astronauts/new">Make a New Crew Member</a></li>
-	<li><a href="/spaceships/new">Make a New Space Craft</a></li>
-	<li><a href="/astronauts">See All the Crew Members</a></li>
-	<li><a href="/spaceships">See All the Space Crafts</a></li>
-	<li><a href="/users">See Your Ships and Crews</a></li>
+  <li><a href="/astronauts/new">Make a New Crew Member</a></li>
+  <li><a href="/spaceships/new">Make a New Space Craft</a></li>
+  <li><a href="/astronauts">See All the Crew Members</a></li>
+  <li><a href="/spaceships">See All the Space Crafts</a></li>
+  <li><a href="/users">See Your Ships and Crews</a></li>
 </ul>
 
 <h4>Status</h4>
 <li><a href="/logout">Logout</a></li>
 <% end %>
 
-	<% if !logged_in? %>
-		<h3>Log In to Access Your Console</h3>
-		
-	<a href="/login">Log In</a> to Access Your Personal Console.
-	<br>
-	<br>
-	<a href="/signup">Sign up</a> to Create a Console.
-	<% end %>
+  <% if !logged_in? %>
+    <h3>Log In to Access Your Console</h3>
+    
+  <a href="/login">Log In</a> to Access Your Personal Console.
+  <br>
+  <br>
+  <a href="/signup">Sign up</a> to Create a Console.
+  <% end %>
 
-	</body>
+  </body>
 </html>

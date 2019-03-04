@@ -4,24 +4,24 @@
 
 <form action="/astronauts" method="POST">
 <ul>
-	<li><label>Name:</label>
-		<input id="name" type="text" name="name"></li>
-	<li><label>Weight:</label>
-		<input id="weight" type="text" name="weight"></li>
-	<li><label>Height:</label>
-		<input id="height" type="text" name="height"></li>
-	<li><label>Bio:</label>
-		<input id="bio" type="text" name="bio"></li>
-	<li><label>Nationality:</label>
-		<input id="nationality" type="text" name="nationality"></li
-	<li><label>Specialty:</label>
-		<input id="specialty" type="text" name="specialty"></li>
+  <li><label>Name:</label>
+    <input id="name" type="text" name="name"></li>
+  <li><label>Weight:</label>
+    <input id="weight" type="text" name="weight"></li>
+  <li><label>Height:</label>
+    <input id="height" type="text" name="height"></li>
+  <li><label>Bio:</label>
+    <input id="bio" type="text" name="bio"></li>
+  <li><label>Nationality:</label>
+    <input id="nationality" type="text" name="nationality"></li
+  <li><label>Specialty:</label>
+    <input id="specialty" type="text" name="specialty"></li>
 </ul>
 <h3>Assign to a Ship</h3>
 <em>Be advised, only one Astronaut per Spacecraft</em>
 <%current_user.spaceships.each do |spacecraft|%>
-	<input id ="ship" type="checkbox" name="ship" id="<%=spacecraft.name%>"value="<%=spacecraft.name%>"<%='checked' if current_user.spaceships.include?(spacecraft)%>> <%=spacecraft.name%></input>
+  <input id ="ship" type="checkbox" name="ship" id="<%=spacecraft.name%>"value="<%=spacecraft.name%>"<%='checked' if current_user.spaceships.include?(spacecraft)%>> <%=spacecraft.name%></input>
 <%end%>
 <br>
-		<input type="submit">
+    <input type="submit">
 </form>

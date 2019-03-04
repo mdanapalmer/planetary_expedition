@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
 
-# new
+  # new
   get '/spaceships/new' do
     if logged_in?
       erb :'spaceships/new.html'

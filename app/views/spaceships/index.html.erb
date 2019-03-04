@@ -1,11 +1,11 @@
 <h2>Space Craft Roster</h2>
 
 <ul><% @spaceships.each do |spacecraft| %>
-	<li>Name: <%= spacecraft.name %></li>
-	<li>Type: <%= spacecraft.ship_type %></li>
-	<li>Speed: <%= spacecraft.speed %></li>
-	<li>Cargo: <%= spacecraft.cargo %></li>
-	<li>Crew: <%= spacecraft.crew_member%></li>
+  <li>Name: <%= spacecraft.name %></li>
+  <li>Type: <%= spacecraft.ship_type %></li>
+  <li>Speed: <%= spacecraft.speed %></li>
+  <li>Cargo: <%= spacecraft.cargo %></li>
+  <li>Crew: <%= spacecraft.crew_member%></li>
 </ul>
 <a href="/spaceships/<%= spacecraft.id %>/edit">Update this Space Craft</a>
 <br>
