@@ -17,7 +17,7 @@
 	<h3>Crew Members</h3>
 		<em>Be advised, only one Astronaut per Spacecraft</em>
 	<%current_user.astronauts.each do |astro|%>
-		<input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.name%>"value="<%=astro.name%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
+		<input type="checkbox" name="spaceship[crew_member][]" id="<%=astro.id%>"value="<%=astro.id%>"<%='checked' if current_user.astronauts.include?(astro)%>> <%=astro.name%></input>
 <%end%>
 <br><br>
 	<input type="submit" value="Create Space Craft">

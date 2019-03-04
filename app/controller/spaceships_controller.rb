@@ -42,7 +42,8 @@ class SpaceshipsController < ApplicationController
   # create
   post '/spaceships' do
     if logged_in?
-      @astronaut = current_user.astronauts.find_by(params[:spaceship][:crew_member])
+      @astronaut = current_user.astronauts.find(params[:spaceship][:crew_member])
+      binding.pry
       @spaceship = Spaceship.create(user_id: current_user.id, name: params[:name], ship_type: params[:ship_type], speed: params[:speed], cargo: params[:cargo], crew_member: @astronaut.name)
       erb :'spaceships/show.html'
     else
